@@ -1,0 +1,10 @@
+h1{
+    font-family: Sen,sans-serif;
+    line-height: 42px;
+    font-weight: 800;
+    margin: 5px auto 5px 0;
+    color: #fff;
+    font-size: 36px;
+    text-transform: capitalize;
+    letter-spacing: -.025em;
+}
