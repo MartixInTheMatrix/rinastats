@@ -12,8 +12,8 @@ class Navbar extends Component {
             https://rinaorc.com/styles/ndzn/R1PjYVc.png
             https://rinaorc.com/styles/ndzn/wP9gGzH.png
             */
-            <div class="navigation">
-            <div class="header-nav">  
+            <div className="navigation">
+            <div className="header-nav">  
             <div className="container p-body-inner">
                 <div className="nav-items ndzn-js--navItems">
                 <div className="container pad">

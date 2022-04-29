@@ -1,0 +1,61 @@
+.left, .right{
+    width: 50%;
+}
+.left{
+    text-align: left;
+    font-size: 20px;
+    height: 60vh;
+    display: flex;
+    flex-direction: row;
+    background: #1f1e1e;
+    border-radius: 20px 0 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.left h4{
+    margin: 5vh;
+}
+.left i:not(.red):not(.green){
+    color: #ecae06;
+    font-size: 20px;
+}
+.red{
+    color: red;
+}
+.green{
+    color: green;
+}
+.right{
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.card{
+    display: flex;
+    flex-direction: row;
+    background: #1f1e1e;
+    border-radius: 20px 50% 50% 20px;
+}
+.chart-exp{
+    width: 70%;
+    height: 5vh;
+    border-radius: 50px;
+}
+.btn-link{
+    background: #ecae06;
+    color: #725508;
+font-weight: 800;
+font-size: 20px;
+height: 60px;
+width: 150px;
+text-decoration: none;
+text-align: center;
+line-height: 58px;
+border-radius: 6px;
+border: none;
+border-bottom: 4px solid #d39b04;
+margin: 5px;
+padding: 5px;
+}

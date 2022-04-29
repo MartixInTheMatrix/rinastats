@@ -1,66 +1,44 @@
-import React, {Component} from "react";
+import React from "react";
 import './searchbox.css'
+import { useState } from 'react';
+import { useNavigate } from "react-router-dom";
 
-class SearchBox extends Component{
+const SearchBox = () => {
+    const [cname, setCname] = useState('')
 
-    constructor(props, placeholder){
-        super(props)
-
-        this.state = {};
-        this.options = []
-        this.placeholder = placeholder;
-        this.cname = ""
+  let navigate = useNavigate();
+  const onSearchChange = (event) =>{
+    const searchFieldString = event.target.value;
+    if(searchFieldString.length === 0){
+        setCname('')
+    }else{
+        setCname('valued')
     }
-
-    onSearchChange = (event) =>{
-        const searchFieldString = event.target.value;
-        if(searchFieldString.length === 0){
-            this.options = []
-            this.cname = ''
-        }else{
-            this.cname = 'valued'
-        }
-        fetch('https://api.rinaorc.com/player/' + searchFieldString, {
-              headers: {
-                  "API-Key": "6e47f70b-43ef-4653-8a3a-232f97a0231d"
-              }})
-      .then((response) => response.json())
-      .then((obj) =>{
-          if(obj.success){
-            this.options.push(obj.player.name)
-            if(this.options.length > 3){this.options.shift()}
-            console.log(obj)
-            if(obj.player)return this.setState(obj.player);
-            return console.log(this.state);
-          }
-          return this.setState(this.state)
-      });
-    };
+};
 
 
-    render(){
-        return (
-        <div className={`search`}>
-            <div className="box">
-            <i id="searchIcon" className={"fas fa-search " + this.cname}></i>
-            <form onSubmit={this.onSearchSubmit}>
-            <input
-                className={`search-box`}
-                type='search'
-                onChange={this.onSearchChange}
-                list="search"
-                name="search"
-                id="searchBoxContent"
-            />
-            </form>
-            </div>
-            <datalist id="search">
-            {this.options === []? <a>Aucun résultat</a> : this.options.map((player)=>{return <option value={player} />})}
-            </datalist>
+  return (
+    <div className={`search`}>
+        <div className="box">
+        <i id="searchIcon" className={"fas fa-search " + cname}></i>
+        <form onSubmit={(event) => {
+            event.preventDefault();
+            console.log(event)
+          navigate(`/player/${event.target.lastChild.value}`);
+          event.target.lastChild.value = ''
+          setCname('')
+        }}>
+        <input
+            className={`search-box`}
+            type='search'
+            onChange={onSearchChange}
+            id="searchBoxContent"
+        />
+        </form>
         </div>
-        )
-        }
-}
 
+    </div>
+    );
+};
 
 export default SearchBox;
